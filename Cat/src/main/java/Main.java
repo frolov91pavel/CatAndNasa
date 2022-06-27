@@ -1,10 +1,10 @@
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.stream.Stream;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -43,6 +43,9 @@ public class Main {
         ObjectMapper mapper = new ObjectMapper();
         List<Cat> cats = mapper.readValue(body, new TypeReference<List<Cat>>() {
         });
+        
+        Stream<Cat> catStream = cats.stream();
+        catStream.filter(value -> value.getUpvotes() > 0).forEach(System.out::println);
         ///---Задача №1
 
         ///+++Задача №2

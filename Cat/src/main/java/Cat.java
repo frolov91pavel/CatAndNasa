@@ -22,4 +22,20 @@ public class Cat {
         this.upvotes = upvotes;
     }
 
+    public int getUpvotes() {
+        return upvotes;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("id " + id + "\n");
+        stringBuilder.append("text " + text + "\n");
+        stringBuilder.append("type " + type + "\n");
+        stringBuilder.append("user " + user + "\n");
+        stringBuilder.append("upvotes " + upvotes + "\n");
+        stringBuilder.append("___________________________");
+
+        return stringBuilder.toString();
+    }
 }
